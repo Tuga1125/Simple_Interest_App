@@ -34,7 +34,7 @@ class ViewController: UIViewController {
                 let timeText = TimeTextField.text, let time = Double(timeText),
                 let rateText = RateTextField.text, let rate = Double(rateText)
                 else {
-                    // Handle invalid input here (e.g., show an error message to the user)
+                    // Handle invalid input here and show error message to the user
                     return
             }
 
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             // Calculate total amount
             let totalAmount = principle + interest
 
-            // Display the result in the InterestTextField and AmountTextField
+            // Show the result in the InterestTextField and AmountTextField
             InterestTextField.text = String(interest)
             AmountTextField.text = String(totalAmount)
         }
