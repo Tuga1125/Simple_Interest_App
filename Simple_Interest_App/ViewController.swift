@@ -8,12 +8,56 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //reference object for UI controls
+    
+    @IBOutlet weak var PrincipleTextField: UITextField!
+    
+    
+    @IBOutlet weak var TimeTextField: UITextField!
+    
+    
+    @IBOutlet weak var RateTextField: UITextField!
+    
+    
+    @IBOutlet weak var InterestTextField: UITextField!
+    
+    @IBOutlet weak var AmountTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func OnCLickCalculate(_ sender: Any) {
+            // Check if all text fields have valid values
+            guard let principleText = PrincipleTextField.text, let principle = Double(principleText),
+                let timeText = TimeTextField.text, let time = Double(timeText),
+                let rateText = RateTextField.text, let rate = Double(rateText)
+                else {
+                    // Handle invalid input here (e.g., show an error message to the user)
+                    return
+            }
 
+            // Calculate interest amount
+            let interest = (principle * rate * time) / 100.0
+
+            // Calculate total amount
+            let totalAmount = principle + interest
+
+            // Display the result in the InterestTextField and AmountTextField
+            InterestTextField.text = String(interest)
+            AmountTextField.text = String(totalAmount)
+        }
+    
+    
+    @IBAction func OnClearClick(_ sender: Any) {
+        // Clear all text fields
+                PrincipleTextField.text = ""
+                TimeTextField.text = ""
+                RateTextField.text = ""
+                InterestTextField.text = ""
+                AmountTextField.text = ""
+    }
+    
 }
 
